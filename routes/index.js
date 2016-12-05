@@ -1,9 +1,17 @@
+require('babel-core/register');
 var express = require('express');
 var router = express.Router();
+var s3Service = require('../src/s3Service').default;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("This is the basic page of the app");
+
+
+router.get('/', (req, res, next) => {
+    try {
+    s3Service.listBuckets();
+    } catch (error) {
+        console.log('error', error);
+    }
+    res.send('i respond to requests');
 });
 
 module.exports = router;
