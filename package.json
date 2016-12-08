@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "coverage": "node ./node_modules/babel-cli/bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha  ./tests/ --recursive --no-default-excludes --report=text  -x '**/node_modules/**'",
+    "coverage": "node ./node_modules/babel-cli/bin/babel-node ./node_modules/.bin/babel-istanbul cover --report cobertura --report html ./node_modules/.bin/_mocha  ./tests/ --recursive --no-default-excludes --report=text  -x '**/node_modules/**'",
     "lint": "node ./node_modules/.bin/eslint --ext .js src/",
     "prebuild": "rm -rf dist",
     "build": "node ./node_modules/babel-cli/bin/babel.js ./src -d dist/",
