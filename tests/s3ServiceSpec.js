@@ -4,10 +4,12 @@ import s3Service from '../src/s3Service';
 
 let expect = chai.expect;
 
-describe('s3 Service Tests', () => {
-    it('listing buckets test', () => {
-        let test = s3Service.listBuckets();
-        console.log('rest: ', test);
-        expect(2).to.equal(2);
+describe('s3 Service Integration Tests', () => {
+    it('listing buckets test', function(done) {
+        this.timeout(5000);
+        s3Service.listBuckets()
+        .then((result) => {
+            expect(result).to.deep.equal(['arvindmeghraj']);
+        }).then(done, done);
     });
 });

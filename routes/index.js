@@ -6,13 +6,12 @@ import s3Service from '../src/s3Service';
 
 
 router.get('/', (req, res, next) => {
-    try {
-        s3Service.listBuckets();
-    } catch (error) {
-        console.log('error', error);
-    }
-    res.send('i respond to requests');
-    next();
+    console.log('im here');
+    s3Service.listBuckets()
+        .then((data) => {
+            return res.send(data);
+        })
+        .catch(next);
 });
 
 module.exports = router;
