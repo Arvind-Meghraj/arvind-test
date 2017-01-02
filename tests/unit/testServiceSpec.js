@@ -1,6 +1,4 @@
-import mocha from 'mocha';
-import chai from 'chai';
-import testService from '../src/testService';
+import testService from '../../src/testService';
 
 let expect = chai.expect;
 describe('Test Service Promise result tests', () => {
